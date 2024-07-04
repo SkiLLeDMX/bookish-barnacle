@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje Especial</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .envelope {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            background-image: url('https://drive.google.com/uc?id=1NNPE22d-_smfYoXHklccw0ReWUeu2n7r');
+            background-size: cover;
+            cursor: pointer;
+        }
+        .envelope::after {
+            content: "Ábreme, soy un virus";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            color: red;
+        }
+        .letter {
+            display: none;
+            width: 300px;
+            height: 400px;
+            background-image: url('https://drive.google.com/uc?id=1x79hTyOlAAyyQwf8aDqAh6wktWO4NwZk');
+            background-size: cover;
+            position: relative;
+            padding: 20px;
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+        }
+        .text {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 80%;
+            height: 60%;
+            overflow: hidden;
+            font-size: 16px;
+            color: black;
+        }
+        @keyframes revealText {
+            from { height: 0; }
+            to { height: 60%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope" onclick="openLetter()"></div>
+    <div class="letter" id="letter">
+        <div class="text" id="text">
+            Gracias, ahora no necesito de ti porque tú estás necesitada de ti.
+            Yo estoy para ti para evitar que algún día nadie tenga que necesitar a nadie por necesidad, solo por simple cariño.
+            Gracias por ser buena persona pero ahora te pido que no caigas hasta que podamos caer juntos.... O estemos tiesos (lo que llegue primero).
+        </div>
+    </div>
+    <script>
+        function openLetter() {
+            document.querySelector('.envelope').style.display = 'none';
+            const letter = document.getElementById('letter');
+            const text = document.getElementById('text');
+            letter.style.display = 'block';
+            text.style.animation = 'revealText 5s steps(100) forwards';
+            setTimeout(() => {
+                letter.style.display = 'none';
+            }, 10000);
+        }
+    </script>
+</body>
+</html>
